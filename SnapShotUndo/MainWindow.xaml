@@ -1,0 +1,121 @@
+﻿<Window x:Class="SnapShotUndo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnapShotUndo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button x:Name="CaptureButton" Content="Individual capture"
+ Width="120" Height="30" Click="CaptureButton_Click" Margin="8"/>
+            <Button x:Name="CompositeCaptureButton" Content="Composite Capture" Width="120" Height="30" Click="CompositeCaptureButton_Click" Margin="8"/>
+            <Button x:Name="UndoButton" Content="Undo" Click="UndoButton_Click" Width="120" Height="30" Margin="8"/>
+
+
+            <Button x:Name="RedoButton" Content="Redo" Width="120" Height="30"
+            Click="RedoButton_Click" Margin="8" />
+
+
+            <Button x:Name="CompoSiteUndoButton" Content="Composite Undo" Click="CompoSiteUndoButton_Click" Width="120" Height="30" Margin="8"/>
+
+
+            <Button x:Name="CompoSiteRedoButton" Content="CompoSiteRedo Redo" Width="120" Height="30"
+            Click="CompoSiteRedoButton_Click" Margin="8" />
+
+
+
+            <Button x:Name="AddDatadButton" Content="Add Data" Width="120" Height="30" Click="AddDatadButton_Click"            
+Margin="8"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <DataGrid x:Name="dataGrid1" Width="Auto" Height="300" CanUserAddRows="False"/>
+            <TextBox x:Name="textBox1" AcceptsReturn="True"
+             Width="Auto" Height="120"
+            Text="{Binding Value}"/>
+        </StackPanel>
+
+        <Grid Grid.Column="2" >
+            <Grid.RowDefinitions  >
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+
+            <StackPanel Orientation="Vertical" 
+     
+>
+               
+                    <CheckBox x:Name="checkBox" Content="Merino" Margin="8"/>
+                    <CheckBox x:Name="checkBox2" Content="Suffolk" Margin="8"/>
+                    <CheckBox x:Name="Dorset" Content="Hampshire" Margin="8"/>
+                    <CheckBox x:Name="checkBox4" Content="Southdown" Margin="8"/>
+                    <CheckBox x:Name="checkBox5" Content="Cheviot" Margin="8"/>
+                </StackPanel>
+
+
+            <!-- 中央：分割バー -->
+            <GridSplitter Grid.Row="1"
+                  Height="1"
+                  Background="Black"
+                  HorizontalAlignment="Stretch"/>
+
+            <StackPanel Grid.Row="2">
+                <RadioButton     Content="Newborn lamb" x:Name="RumRadio1" Margin="7"/>
+                <RadioButton Content="Early growth" x:Name="RumRadio2" Margin="7"/>
+                <RadioButton Content="Weaned lamb" x:Name="RumRadio3" Margin="7"/>
+                <RadioButton Content="Store lamb" x:Name="RumRadio4" Margin="7"/>
+            </StackPanel>
+
+                <StackPanel  Grid.Row="3" Orientation="Vertical"
+            
+>
+                    <Slider x:Name="SheepSlider"
+                    Height="Auto"
+            TickPlacement ="Both"
+            IsSnapToTickEnabled ="False"
+            TickFrequency="15"
+            SmallChange ="10"
+             Maximum="255"
+            ValueChanged="SheepSlider_ValueChanged"
+            Margin="5"
+            />
+
+                <Slider x:Name="SheepSlider2"
+        Height="Auto"
+TickPlacement ="Both"
+IsSnapToTickEnabled ="True"
+TickFrequency="10"
+SmallChange ="10"
+ Maximum="255"
+ValueChanged="SheepSlider2_ValueChanged"
+Margin="5"
+/>
+                <Slider x:Name="SheepSlider3"
+        Height="Auto"
+TickPlacement ="Both"
+IsSnapToTickEnabled ="False"
+TickFrequency="10"
+SmallChange ="10"
+ Maximum="255"
+ValueChanged="SheepSlider3_ValueChanged"
+Margin="5"
+/>
+                
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
